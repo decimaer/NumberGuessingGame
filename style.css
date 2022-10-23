@@ -49,6 +49,7 @@ pre {
     background: none;
     border: none;
     font-size: 1.5em;
+    min-width: 70vw;
 }
 
 #InputGuess:focus, #SubmitGuess:focus {
@@ -57,7 +58,7 @@ pre {
 }
 
 #SubmitGuess {
-    background: none;
+    background: rgb(25, 25, 100);
     border: none;
     color: rgb(218, 218, 218);
     font-size: 1.5em;
