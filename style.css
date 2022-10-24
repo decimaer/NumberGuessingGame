@@ -10,7 +10,9 @@ body {
     background-color: rgb(27, 27, 110);
 }
 
-
+.hidden {
+    display: none;
+}
 
 p, i {
     font-size: 1.3em;
@@ -18,7 +20,7 @@ p, i {
 }
 
 pre {
-    font-size: 0.5em;
+    font-size: 0.7em;
     width: fit-content;
     align-self: center;
     justify-self: center;
@@ -57,9 +59,10 @@ pre {
     font-weight: bold;
 }
 
-#SubmitGuess {
+button {
+    font-family: 'Courier New', Courier, monospace;
     background: rgb(25, 25, 100);
     border: none;
     color: rgb(218, 218, 218);
-    font-size: 1.5em;
+    font-size: 1.3rem;
 }
