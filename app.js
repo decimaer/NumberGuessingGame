@@ -1,9 +1,13 @@
 /*
-FUNCTIONALITY TO ADD
-- add media query for mobile
-- when inputing wrong value, play beep sound. Dont show message. Other visual cue?
+TO DO LIST
+- feature: add media query for mobile
+- feature: when inputing wrong value, play beep sound. Dont show message. Other visual cue?
+- feature: start screen/reset screen. add ways to start: enter, input "yes", "y", "YES", "Y"
+- feature: "AI" improvement - ((max-min)/2) * fuzzy != previous guess
 - Bug: when demon win, print other "round" message
 - Bug: Description of max number doesn't match maxNumber setting
+- clean-up: splitta upp pickMinMax() i två funktioner
+- clean-up: pickMinMax() - implementera map-reduce
 */
 
 // Game settings
@@ -104,12 +108,13 @@ function outputLine(input) {
 
 function pickMinMax(array1, array2, mode) {
     //picks min value of "high" and max value of "low"
+    //array1 is first player
     let bothArrays = [];
-    if (array2.length == 0) {
-        bothArrays = array1;
-    } else {
+//    if (array2.length == 0) {
+//        bothArrays = array1;
+//    } else {
         bothArrays = array1.concat(array2);
-    }
+//    }
 
     if (mode == 'high') {
         let bothArraysFilter = bothArrays.filter(bothArrays => bothArrays.includes('high'));
@@ -120,7 +125,6 @@ function pickMinMax(array1, array2, mode) {
             if (selected != 0) {return Math.min(...selected);
             } else {return maxNumber}
     }
-
     if (mode == 'low') {
         let bothArraysFilter = bothArrays.filter(bothArrays => bothArrays.includes('low'));
         let selected = [];
@@ -130,36 +134,6 @@ function pickMinMax(array1, array2, mode) {
             if (selected != 0) {return Math.max(...selected);
             } else {return 0}
     }
-    
-/*
-    if (mode == 'high') {
-        let highTable = [];
-            for (i = 0; i < array1.length; i++) {
-                if (array1[i].includes("high") == true) {highTable.push(array1[i][1]);}
-                else break;
-            }
-            for (i = 0; i < array2.length; i++) {
-                if (array2[i].includes("high") == true) {highTable.push(array2[i][1]);}
-                else break;
-            }
-        if (highTable != 0) {return Math.min(...highTable)}
-        else return maxNumber;
-    }
-*/
-/*
-    if (mode == 'low') {
-        let lowTable = [];
-            for (i = 0; i < array1.length; i++) {
-                if (array1[i].includes('low') == true) {lowTable.push(array1[i][1]);}
-                else break;
-            }
-            for (i = 0; i < array2.length; i++) {
-                if (array2[i].includes('low') == true) {lowTable.push(array2[i][1]);}
-                else break;
-            }
-        if (lowTable != 0) {return Math.max(...lowTable)}
-    }
-*/
     return 0;
 }
 
